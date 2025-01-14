@@ -21,3 +21,11 @@ Para ejecutar este proyecto en tu máquina local, necesitarás instalar los sigu
 1. **yfinance**: Para obtener los datos financieros de las acciones.
    ```bash
    pip install yfinance
+
+2. **schedule**: Para programar la ejecución de las tareas automáticas.
+    ```bash
+   pip install schedule
+
+3. **requests**:  Para hacer solicitudes HTTP a la API que proporciona el precio del dólar.
+    ```bash
+   pip install requests
