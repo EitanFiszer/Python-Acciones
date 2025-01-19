@@ -27,12 +27,3 @@ def obtener_precios_dolares():
     
     return precios
 
-
-precios = obtener_precios_dolares()
-
-# Mostrar resultados
-for tipo, datos in precios.items():
-    if 'error' in datos:
-        print(f"{tipo}: {datos['error']}")
-    else:
-        print(f"Dólar {tipo}: Compra: {datos['compra']}, Venta: {datos['venta']}")

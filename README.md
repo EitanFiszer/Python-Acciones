@@ -29,3 +29,11 @@ Para ejecutar este proyecto en tu máquina local, necesitarás instalar los sigu
 3. **requests**:  Para hacer solicitudes HTTP a la API que proporciona el precio del dólar.
     ```bash
    pip install requests
+
+4. **pandas**:  Para hacer análisis y manipulación de datos para trabajar de manera eficiente.
+    ```bash
+   pip install pandas
+
+5. **matplotlib**:  Para crear gráficos y visualizaciones de datos de manera sencilla y personalizable.
+    ```bash
+   pip install matplotlib
