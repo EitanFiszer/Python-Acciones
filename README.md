@@ -37,3 +37,7 @@ Para ejecutar este proyecto en tu máquina local, necesitarás instalar los sigu
 5. **matplotlib**:  Para crear gráficos y visualizaciones de datos de manera sencilla y personalizable.
     ```bash
    pip install matplotlib
+
+6. **tweepy**:  Para crear tweets de manera sencilla.
+    ```bash
+   pip install tweepy

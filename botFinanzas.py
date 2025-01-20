@@ -10,6 +10,7 @@ from mail import *
 from utilsMail import *
 from utilsAcciones import *
 from tareasProgramadas import *
+from twitter import *
 
 # Lista de acciones a monitorear
 acciones = ['AAPL', 'GOOGL', 'AMZN', "IBM", "META", "MSFT"]
@@ -24,7 +25,4 @@ obtenerMediaMovilSimple("AAPL",200)
     #time.sleep(1)
 
 
-
-
-
-
+#tweetear(contenido)
