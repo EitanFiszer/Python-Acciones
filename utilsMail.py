@@ -4,6 +4,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from utilsAcciones import *
 from dolar import *
+from config import *
 
 ##Enviar correo
 def enviar_correo(asunto, mensaje):
@@ -25,24 +26,51 @@ def enviar_correo(asunto, mensaje):
         print("Correo enviado correctamente.")
     except Exception as e:
         print(f"Error al enviar correo: {e}")
+    
+    
         
 def enviar_resumen_apertura():
-    """Envía el resumen cuando abre el mercado."""
-    datos = obtener_datos_acciones()
+    datos = obtener_datos_acciones(TICKERS)
     precios = obtener_precios_dolares()
     mensaje = "Resumen de apertura del mercado:\n\n"
     for accion, apertura, _, _ in datos:
         mensaje += f"{accion}: Apertura: ${apertura:.2f}\n"
     for tipo, datos in precios.items():
         mensaje += f"Dólar {tipo}: Compra: {datos['compra']}, Venta: {datos['venta']}\n"    
-    enviar_correo("Apertura del mercado (prueba)", mensaje)
-
-
+    enviar_correo("Apertura del mercado", mensaje)
+    
 
 def enviar_resumen_cierre():
-    """Envía el resumen cuando cierra el mercado."""
-    datos = obtener_datos_acciones()
+    datos = obtener_datos_acciones(TICKERS)
     mensaje = "Resumen de cierre del mercado:\n\n"
     for accion, apertura, cierre, variacion in datos:
         mensaje += f"{accion}: Apertura: ${apertura:.2f}, Cierre: ${cierre:.2f}, Variación: {variacion:.2f}%\n"
-    enviar_correo("Cierre del mercado (prueba)", mensaje)
+    enviar_correo("Cierre del mercado", mensaje)
+    
+def enviarAvisoDeCruce(acciones):
+    medias = [20, 50, 100, 200]
+    avisos = []
+
+    for accion in acciones:
+        for i in range(len(medias)):
+            for j in range(i + 1, len(medias)):
+                media1 = medias[i]
+                media2 = medias[j]
+                
+                if cruceDeMedias(accion, media1, media2):
+                    aviso = f"¡Cruce detectado en {accion} entre EMA {media1} y EMA {media2}!"
+                    avisos.append(aviso)
+                    print(aviso)
+    
+    if avisos:
+        # Construir el mensaje del correo
+        mensaje = "Se detectaron los siguientes cruces de medias móviles:\n\n"
+        mensaje += "\n".join(avisos)
+        
+        # Enviar el correo
+        enviar_correo("Avisos de cruces de medias móviles", mensaje)
+    
+    return avisos
+
+
+enviar_resumen_apertura()

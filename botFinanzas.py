@@ -11,13 +11,10 @@ from utilsMail import *
 from utilsAcciones import *
 from tareasProgramadas import *
 from twitter import *
+    
+emas = obtenerMediaMovilExponencial("AAPL",20)
 
-# Lista de acciones a monitorear
-acciones = ['AAPL', 'GOOGL', 'AMZN', "IBM", "META", "MSFT"]
-
-
-obtenerMediaMovilExponencial("AAPL",200)
-obtenerMediaMovilSimple("AAPL",200)
+#obtenerMediaMovilSimple("AAPL",200)
 
 #print("Bot en ejecución...")
 #while True:

@@ -22,17 +22,19 @@ def obtener_datos_acciones(acciones):
 def obtenerMediaMovilExponencial(accion, tipo):
     ticker = yf.Ticker(accion)  # Acción como parámetro
     
-    # Obtener datos históricos con un período mayor para cubrir medias móviles largas
-    data = ticker.history(period="max", interval="1d", actions=True)  # Último año (ajusta según lo necesario)
+    # Obtener datos históricos
+    data = ticker.history(period="max", interval="1d", actions=True)
     
     # Asegúrate de que no haya valores NaN en la columna 'Close'
     data = data.dropna(subset=['Close'])
 
-    # Calcular la EMA del tipo que se pasa como argumento, usando adjust=True
+    # Calcular la EMA del tipo que se pasa como argumento
     data[f'EMA_{tipo}'] = data['Close'].ewm(span=tipo, adjust=True).mean()
 
-    # Mostrar las últimas filas con la EMA calculada
-    print(data[['Close', f'EMA_{tipo}']].tail())
+    # Obtener los dos últimos valores de la EMA
+    ultimos_emas = data[f'EMA_{tipo}'].iloc[-2:].tolist()
+
+    return ultimos_emas
     
     #graficarDatos(data, tipo)
 
@@ -53,7 +55,16 @@ def obtenerMediaMovilSimple(accion, tipo):
     
     #graficarDatos(datos, tipo)
     
-
+    
+def cruceDeMedias(accion, media1, media2):
+    # Obtener los últimos dos valores de las EMAs para ambas medias
+    emas1 = obtenerMediaMovilExponencial(accion, media1)
+    emas2 = obtenerMediaMovilExponencial(accion, media2)
+    
+    # Verificar si hay un cruce entre las medias
+    return (emas1[0] < emas2[0] and emas1[1] > emas2[1]) or \
+           (emas1[0] > emas2[0] and emas1[1] < emas2[1])
+    
 # Función para graficar los datos
 def graficarDatos(data, tipo):
     # Graficar el precio de cierre y la SMA calculada
