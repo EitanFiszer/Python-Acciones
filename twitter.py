@@ -34,5 +34,5 @@ def dividir_en_bloques(texto, lineas_por_bloque=4):
 
 
 #Funcion para twittear lo que haga falta
-#def tweetear(contenido):
-#    client.create_tweet(text=contenido)
+def tweetear(contenido):
+    client.create_tweet(text=contenido)

@@ -12,12 +12,10 @@ tweets_cierre = dividir_en_bloques(tweet_cierre, 4)
 tweets_apertura = dividir_en_bloques(tweet_apertura, 4)
 
 # Imprimir los bloques para verificar
-print("Tweets de cierre:")
-for tweet in tweets_cierre:
-    print(tweet)
-    print("-" * 50)
-
-print("Tweets de apertura:")
-for tweet in tweets_apertura:
-    print(tweet)
-    print("-" * 50)
+#print("Tweets de cierre:")
+#for tweet in tweets_cierre:
+#    tweetear(tweet)
+#
+#print("Tweets de apertura:")
+#for tweet in tweets_apertura:
+#    tweetear(tweet)
