@@ -28,8 +28,8 @@ def enviar_correo(asunto, mensaje):
     
     
         
-def enviar_resumen_apertura():
-    datos = obtener_datos_acciones(TICKERS)
+def enviar_resumen_apertura(acciones):
+    datos = obtener_datos_acciones(acciones)
     precios = obtener_precios_dolares()
     mensaje = "Resumen de apertura del mercado:\n\n"
     for accion, apertura, _, _ in datos:
@@ -39,18 +39,18 @@ def enviar_resumen_apertura():
     enviar_correo("Apertura del mercado", mensaje)
     
 
-def enviar_resumen_cierre():
-    datos = obtener_datos_acciones(TICKERS)
+def enviar_resumen_cierre(acciones):
+    datos = obtener_datos_acciones(acciones)
     mensaje = "Resumen de cierre del mercado:\n\n"
     for accion, apertura, cierre, variacion in datos:
         mensaje += f"{accion}: Apertura: ${apertura:.2f}, Cierre: ${cierre:.2f}, Variación: {variacion:.2f}%\n"
     enviar_correo("Cierre del mercado", mensaje)
     
-def enviarAvisoDeCruce():
+def enviarAvisoDeCruce(acciones):
     medias = [20, 50, 100, 200]
     avisos = []
 
-    for accion in TICKERS:
+    for accion in acciones:
         for i in range(len(medias)):
             for j in range(i + 1, len(medias)):
                 media1 = medias[i]
