@@ -7,3 +7,6 @@ def ejecutarApertura():
 def ejecutarCierre():
     enviar_resumen_cierre()
     enviarAvisoDeCruce()
+    
+    
+enviarAvisoDeCruce()

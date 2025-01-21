@@ -68,4 +68,5 @@ def enviarAvisoDeCruce():
         
         # Enviar el correo
         enviar_correo("Avisos de cruces de medias móviles", mensaje)
-
+    else:
+        print("No hubo cruces")
