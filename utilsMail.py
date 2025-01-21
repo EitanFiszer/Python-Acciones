@@ -1,4 +1,3 @@
-from mail import *
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -47,11 +46,11 @@ def enviar_resumen_cierre():
         mensaje += f"{accion}: Apertura: ${apertura:.2f}, Cierre: ${cierre:.2f}, Variación: {variacion:.2f}%\n"
     enviar_correo("Cierre del mercado", mensaje)
     
-def enviarAvisoDeCruce(acciones):
+def enviarAvisoDeCruce():
     medias = [20, 50, 100, 200]
     avisos = []
 
-    for accion in acciones:
+    for accion in TICKERS:
         for i in range(len(medias)):
             for j in range(i + 1, len(medias)):
                 media1 = medias[i]
@@ -69,8 +68,5 @@ def enviarAvisoDeCruce(acciones):
         
         # Enviar el correo
         enviar_correo("Avisos de cruces de medias móviles", mensaje)
-    
-    return avisos
-
-
-enviar_resumen_apertura()
+    else:
+        print("No hubo cruces")

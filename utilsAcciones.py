@@ -1,6 +1,6 @@
 import yfinance as yf
 import pandas as pd
-import matplotlib.pyplot as plt
+from grafico import *
 
 # Devuelve una lista con los datos de las acciones
 def obtener_datos_acciones(acciones):
@@ -65,15 +65,3 @@ def cruceDeMedias(accion, media1, media2):
     return (emas1[0] < emas2[0] and emas1[1] > emas2[1]) or \
            (emas1[0] > emas2[0] and emas1[1] < emas2[1])
     
-# Función para graficar los datos
-def graficarDatos(data, tipo):
-    # Graficar el precio de cierre y la SMA calculada
-    plt.figure(figsize=(12, 6))
-    plt.plot(data.index, data['Close'], label='Precio de Cierre', color='blue')
-    plt.plot(data.index, data[f'SMA_{tipo}'], label=f'SMA {tipo}', color='red')
-    plt.title(f'Precio de Cierre y SMA de {tipo} Días')
-    plt.xlabel('Fecha')
-    plt.ylabel('Precio')
-    plt.legend()
-    plt.grid()
-    plt.show()
