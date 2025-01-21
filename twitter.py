@@ -26,6 +26,12 @@ def compilar_contenido_apertura(acciones):
         tweet += f"{nombre}: Apertura:{apertura:.2f}\n"
     return tweet
 
+def dividir_en_bloques(texto, lineas_por_bloque=4):
+    """Divide un texto en bloques de n líneas."""
+    lineas = texto.strip().split('\n')
+    bloques = ['\n'.join(lineas[i:i + lineas_por_bloque]) for i in range(0, len(lineas), lineas_por_bloque)]
+    return bloques
+
 
 #Funcion para twittear lo que haga falta
 #def tweetear(contenido):

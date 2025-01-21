@@ -1,14 +1,23 @@
-from utilsMail import *
 from twitter import *
-from config import *
-        
-def ejecutarApertura():
-    enviar_resumen_apertura(TICKERS)
+import config
 
-def ejecutarCierre():
-    enviar_resumen_cierre(TICKERS)
-    enviarAvisoDeCruce(TICKERS)
-    
-    
-ejecutarApertura()
-ejecutarCierre()
+acciones = config.TICKERS
+
+# Generar los tweets de cierre y apertura
+tweet_cierre = compilar_contenido_cierre(acciones)
+tweet_apertura = compilar_contenido_apertura(acciones)
+
+# Dividir en bloques de 4 líneas
+tweets_cierre = dividir_en_bloques(tweet_cierre, 4)
+tweets_apertura = dividir_en_bloques(tweet_apertura, 4)
+
+# Imprimir los bloques para verificar
+print("Tweets de cierre:")
+for tweet in tweets_cierre:
+    print(tweet)
+    print("-" * 50)
+
+print("Tweets de apertura:")
+for tweet in tweets_apertura:
+    print(tweet)
+    print("-" * 50)
