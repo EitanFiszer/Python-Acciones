@@ -3,18 +3,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from utilsAcciones import *
 from dolar import *
-from dotenv import load_dotenv
-import os
-
-# Cargar variables del archivo .env
-load_dotenv()
-
-# Acceso a las variables
-SMTP_SERVER = os.getenv("SMTP_SERVER")
-SMTP_PORT = int(os.getenv("SMTP_PORT", 587))  # Valor predeterminado 587
-EMAIL_SENDER = os.getenv("EMAIL_SENDER")
-EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
-EMAIL_RECEIVER = os.getenv("EMAIL_RECEIVER")
+from config import EMAIL_PASSWORD, EMAIL_RECEIVER, EMAIL_SENDER, SMTP_PORT, SMTP_SERVER
 
 ##Enviar correo
 def enviar_correo(asunto, mensaje):

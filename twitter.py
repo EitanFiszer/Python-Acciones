@@ -1,17 +1,8 @@
 import tweepy
 from utilsAcciones import *
-from dotenv import load_dotenv
-import os
-
-# Cargar las variables del archivo .env
-load_dotenv()
+from config import bearer_token, api_key, api_secret, access_token, access_token_secret
 
 #Autenticación con Twitter API
-bearer_token=os.getenv("bearer_token")
-api_key=os.getenv("api_key")
-api_secret=os.getenv("api_secret")
-access_token=os.getenv("access_token")
-access_token_secret=os.getenv("access_token_secret")
 
 client = tweepy.Client(bearer_token,api_key,api_secret,access_token,access_token_secret)
 auth = tweepy.OAuthHandler(api_key,api_secret,access_token,access_token_secret)

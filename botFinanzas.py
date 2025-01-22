@@ -1,25 +1,22 @@
-from twitter import *
-from utilsMail import *
-from dotenv import load_dotenv
-import os
-
-# Cargar variables del archivo .env
-load_dotenv()
+from twitter import compilar_contenido_apertura, compilar_contenido_cierre, tweetear_diario
+from utilsMail import enviar_resumen_apertura,enviar_resumen_cierre, enviarAvisoDeCruce
+from config import tickers
 
 # Acceso a las variables
-acciones = os.getenv("TICKERS")
+
+print(tickers)
 
 def ejecutarApertura():
-    enviar_resumen_apertura(acciones)
-    tweet_apertura=compilar_contenido_apertura(acciones)
+    enviar_resumen_apertura(tickers)
+    tweet_apertura=compilar_contenido_apertura(tickers)
     tweetear_diario(tweet_apertura)
     
 def ejecutarCierre():
-    enviar_resumen_cierre(acciones)
-    enviarAvisoDeCruce(acciones)
-    tweet_cierre=compilar_contenido_cierre(acciones)
+    enviar_resumen_cierre(tickers)
+    enviarAvisoDeCruce(tickers)
+    tweet_cierre=compilar_contenido_cierre(tickers)
     tweetear_diario(tweet_cierre)
     
 
-ejecutarApertura()
+ejecutarCierre()
     
