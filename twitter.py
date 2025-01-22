@@ -1,10 +1,20 @@
 import tweepy
 from utilsAcciones import *
-import config
+from dotenv import load_dotenv
+import os
+
+# Cargar las variables del archivo .env
+load_dotenv()
 
 #Autenticación con Twitter API
-client = tweepy.Client(config.bearer_token,config.api_key,config.api_secret,config.access_token,config.access_token_secret)
-auth = tweepy.OAuthHandler(config.api_key,config.api_secret,config.access_token,config.access_token_secret)
+bearer_token=os.getenv("bearer_token")
+api_key=os.getenv("api_key")
+api_secret=os.getenv("api_secret")
+access_token=os.getenv("access_token")
+access_token_secret=os.getenv("access_token_secret")
+
+client = tweepy.Client(bearer_token,api_key,api_secret,access_token,access_token_secret)
+auth = tweepy.OAuthHandler(api_key,api_secret,access_token,access_token_secret)
 api = tweepy.API(auth)
 
 
@@ -31,6 +41,13 @@ def dividir_en_bloques(texto, lineas_por_bloque=4):
     lineas = texto.strip().split('\n')
     bloques = ['\n'.join(lineas[i:i + lineas_por_bloque]) for i in range(0, len(lineas), lineas_por_bloque)]
     return bloques
+
+
+def tweetear_diario(tweet_diario):
+    tweets_diario = dividir_en_bloques(tweet_diario, 4)
+    print("Tweets de apertura:")
+    for tweet in tweets_diario:
+        tweetear(tweet)
 
 
 #Funcion para twittear lo que haga falta
