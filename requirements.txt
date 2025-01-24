@@ -1,0 +1,7 @@
+python-dotenv
+tweepy
+requests
+pandas
+yfinance
+schedule
+matplotlib
