@@ -4,7 +4,6 @@ on:
   schedule:
     # Cierre: De lunes a viernes a las 22:00 UTC
     - cron: "0 22 * * *"
-    - cron: "0 15 * * *"
     
 jobs:
   cierre:
