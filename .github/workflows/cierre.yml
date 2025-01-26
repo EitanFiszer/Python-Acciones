@@ -5,7 +5,7 @@ on:
     # Cierre: De lunes a viernes a las 22:00 UTC
     #- cron: "0 22 * * 1-5"
     # Prueba 
-    - cron: "47 05 * * *"
+    - cron: '*/5 * * * *'
 
 jobs:
   cierre:
