@@ -58,7 +58,6 @@ def obtenerMediaMovilSimple(accion, tipo):
     
 def cruceDeMedias(accion, media1, media2):
     # Obtener los últimos dos valores de las EMAs para ambas medias
-    print(accion)
     emas1 = obtenerMediaMovilExponencial(accion, media1)
     emas2 = obtenerMediaMovilExponencial(accion, media2)
     

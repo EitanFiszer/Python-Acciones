@@ -36,9 +36,10 @@ def dividir_en_bloques(texto, lineas_por_bloque=4):
 
 def tweetear_diario(tweet_diario):
     tweets_diario = dividir_en_bloques(tweet_diario, 4)
-    print("Tweets de apertura:")
     for tweet in tweets_diario:
         tweetear(tweet)
+    print("Tweeteado con exito")
+
 
 
 #Funcion para twittear lo que haga falta

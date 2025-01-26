@@ -22,8 +22,3 @@ EMAIL_SENDER = os.getenv("EMAIL_SENDER")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
 EMAIL_RECEIVER = os.getenv("EMAIL_RECEIVER")
 
-print(SMTP_SERVER)
-print(SMTP_PORT)  # Valor predeterminado 587
-print(EMAIL_SENDER)
-print(EMAIL_PASSWORD)
-print(EMAIL_RECEIVER)
