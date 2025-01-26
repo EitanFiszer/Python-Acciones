@@ -5,6 +5,7 @@ on:
   schedule:
     # Apertura: De lunes a viernes a las 14:00 UTC
     - cron: "25 14 * * *"
+    - cron: "0 15 * * *"
   workflow_dispatch: # Permite ejecución manual
 jobs:
   apertura:
