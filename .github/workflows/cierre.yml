@@ -3,7 +3,7 @@ name: Ejecución diaria de cierre
 on:
   schedule:
     # Cierre: De lunes a viernes a las 22:00 UTC
-    - cron: "0 22 * * 1-5"
+    #- cron: "0 22 * * 1-5"
     # Prueba 
     -cron: "40 05 * * *"
 
