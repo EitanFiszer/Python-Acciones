@@ -2,8 +2,9 @@ from dotenv import load_dotenv
 import os
 
 # Cargar variables del archivo .env
-load_dotenv("./config.env")
-
+if not load_dotenv("./config.env"):
+    print("Advertencia: No se pudo cargar el archivo config.env")
+    
 tickers = os.getenv("TICKERS")
 if tickers:
     tickers = tickers.split(",")  # Divide la cadena en una lista
