@@ -4,7 +4,7 @@ name: Ejecución diaria de apertura
 on:
   schedule:
     # Apertura: De lunes a viernes a las 14:00 UTC
-    - cron: "0 21 * * *"
+    - cron: "0 15 * * *"
   workflow_dispatch: # Permite ejecución manual
 jobs:
   apertura:
