@@ -16,28 +16,4 @@ Este proyecto es un bot que monitorea las cotizaciones diarias de algunas accion
 
 ## Requisitos
 
-Para ejecutar este proyecto en tu máquina local, necesitarás instalar los siguientes paquetes:
-
-1. **yfinance**: Para obtener los datos financieros de las acciones.
-   ```bash
-   pip install yfinance
-
-2. **schedule**: Para programar la ejecución de las tareas automáticas.
-    ```bash
-   pip install schedule
-
-3. **requests**:  Para hacer solicitudes HTTP a la API que proporciona el precio del dólar.
-    ```bash
-   pip install requests
-
-4. **pandas**:  Para hacer análisis y manipulación de datos para trabajar de manera eficiente.
-    ```bash
-   pip install pandas
-
-5. **matplotlib**:  Para crear gráficos y visualizaciones de datos de manera sencilla y personalizable.
-    ```bash
-   pip install matplotlib
-
-6. **tweepy**:  Para crear tweets de manera sencilla.
-    ```bash
-   pip install tweepy
+Para ejecutar este proyecto en tu máquina local, necesitarás instalar los paquetes especificados en el archivo requirements.txt:
