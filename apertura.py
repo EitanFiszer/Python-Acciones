@@ -4,8 +4,8 @@ from config import tickers
 
 def ejecutarApertura():
     enviar_resumen_apertura(tickers)
-    tweet_apertura=compilar_contenido_apertura(tickers)
-    crear_hilo(tweet_apertura,"APERTURA DE LA BOLSA HOY")
+    #tweet_apertura=compilar_contenido_apertura(tickers)
+    #crear_hilo(tweet_apertura,"APERTURA DE LA BOLSA HOY")
     
 if __name__ == "__main__":
     ejecutarApertura()
