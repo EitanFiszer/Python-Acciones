@@ -3,16 +3,19 @@ import pandas as pd
 from grafico import *
 
 # Devuelve una lista con los datos de las acciones
+import yfinance as yf
+
 def obtener_datos_acciones(acciones):
     datos = []
     for accion in acciones:
         try:
             ticker = yf.Ticker(accion)
-            historial = ticker.history(period="1d")
-            if not historial.empty:
-                apertura = historial['Open'].iloc[0]  # Corregido con .iloc
-                cierre = historial['Close'].iloc[0]  # Corregido con .iloc
-                variacion = ((cierre - apertura) / apertura) * 100
+            historial = ticker.history(period="5d")  # Obtener datos de los últimos 2 días
+            if len(historial) >= 2:  # Verificar que hay al menos 2 días de datos
+                apertura = historial['Open'].iloc[-1]  # Apertura del día actual
+                cierre = historial['Close'].iloc[-1]  # Cierre del día actual
+                cierre_anterior = historial['Close'].iloc[-2]  # Cierre del día anterior
+                variacion = ((cierre - cierre_anterior) / cierre_anterior) * 100
                 datos.append((accion, apertura, cierre, variacion))
         except Exception as e:
             print(f"Error al obtener datos para {accion}: {e}")
